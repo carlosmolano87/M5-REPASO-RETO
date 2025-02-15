@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bancolombia.aplicacioncuenta.AplicacioncuentaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-01T16:25:46" hostname="PB0B0957729" time="0.984">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.bancolombia.aplicacioncuenta.AplicacioncuentaApplicationTests" time="0.984"/>
+  <system-out><![CDATA[11:25:44.755 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.bancolombia.aplicacioncuenta.AplicacioncuentaApplicationTests]: AplicacioncuentaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:25:44.886 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.bancolombia.aplicacioncuenta.AplicacioncuentaApplication for test class com.bancolombia.aplicacioncuenta.AplicacioncuentaApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.8)
+
+2024-10-01T11:25:45.432-05:00  INFO 18520 --- [aplicacioncuenta] [    Test worker] c.b.a.AplicacioncuentaApplicationTests   : Starting AplicacioncuentaApplicationTests using Java 17.0.12 with PID 18520 (started by cmolano in C:\Users\cmolano\OneDrive - Grupo Bancolombia\AA Firma Electronica\Archivos\Espacios Modernizacion Iseries\Modulo Java-Spring\clases\aplicacionbancaria\aplicacioncuenta)
+2024-10-01T11:25:45.433-05:00  INFO 18520 --- [aplicacioncuenta] [    Test worker] c.b.a.AplicacioncuentaApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2024-10-01T11:25:46.966-05:00  INFO 18520 --- [aplicacioncuenta] [    Test worker] c.b.a.AplicacioncuentaApplicationTests   : Started AplicacioncuentaApplicationTests in 1.879 seconds (process running for 3.306)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -3,9 +3,11 @@ package com.bancolombia.repasoreto.controller;
 import com.bancolombia.repasoreto.model.DTO.PrestamoDTO;
 import com.bancolombia.repasoreto.model.Prestamo;
 import com.bancolombia.repasoreto.service.PrestamoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/prestamos")
@@ -17,7 +19,7 @@ public class PrestamoController {
     }
 
     @PostMapping("/solicitar")
-    public Prestamo solicitarPrestamo(@RequestBody PrestamoDTO prestamoDTO) {
+    public Prestamo solicitarPrestamo(@Valid @RequestBody PrestamoDTO prestamoDTO) {
         return prestamoService.solicitarPrestamo(prestamoDTO);
     }
 
@@ -44,5 +46,21 @@ public class PrestamoController {
         String estado = prestamoService.obtenerEstadoPrestamo(prestamoId);
         return ResponseEntity.ok("El estado del préstamo es: " + estado);
     }
+
+    @GetMapping("historial/tres-ultimos/{id}")
+    public ResponseEntity<?> consultarPrestamoPorId(@PathVariable Long id) {
+        Optional<Prestamo> prestamoOpt = prestamoService.consultarPrestamoPorId(id);
+
+        if (prestamoOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Prestamo prestamo = prestamoOpt.get();
+        List<PrestamoDTO> ultimosTresPrestamos = prestamoService.obtenerUltimosTresPrestamos(prestamo.getCliente().getId());
+
+        return ResponseEntity.ok(new PrestamoHistorialResponse(prestamo, ultimosTresPrestamos));
+    }
+
+    public record PrestamoHistorialResponse(Prestamo prestamo, List<PrestamoDTO> historial) {}
 
 }

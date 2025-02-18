@@ -1,4 +1,4 @@
-package com.bancolombia.aplicacioncuenta.config;
+package com.bancolombia.repasoreto.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

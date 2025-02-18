@@ -1,4 +1,4 @@
-package com.bancolombia.aplicacioncuenta.config;
+package com.bancolombia.repasoreto.config;
 
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

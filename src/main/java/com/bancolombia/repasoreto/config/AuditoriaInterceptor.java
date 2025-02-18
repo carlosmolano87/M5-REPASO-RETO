@@ -1,4 +1,4 @@
-package com.bancolombia.aplicacioncuenta.config;
+package com.bancolombia.repasoreto.config;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

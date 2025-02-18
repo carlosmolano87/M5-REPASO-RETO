@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PrestamoService {
@@ -62,5 +63,25 @@ public class PrestamoService {
         return prestamoRepository.findById(prestamoId)
                 .map(Prestamo::getEstado)
                 .orElseThrow(() -> new RuntimeException("Préstamo no encontrado con ID: " + prestamoId));
+    }
+
+    public Optional<Prestamo> consultarPrestamoPorId(Long id) {
+        return prestamoRepository.findById(id);
+    }
+
+    public List<PrestamoDTO> obtenerUltimosTresPrestamos(Long clienteId) {
+        return prestamoRepository.findTop3ByClienteIdOrderByFechaCreacionDesc(clienteId)
+                .stream()
+                .map(this::convertirADTO)
+                .collect(Collectors.toList());
+    }
+
+    private PrestamoDTO convertirADTO(Prestamo prestamo) {
+        PrestamoDTO dto = new PrestamoDTO();
+        dto.setMonto(prestamo.getMonto());
+        dto.setInteres(prestamo.getInteres());
+        dto.setDuracionMeses(prestamo.getDuracionMeses());
+        dto.setClienteId(prestamo.getCliente().getId());
+        return dto;
     }
 }
